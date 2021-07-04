@@ -29,6 +29,12 @@ export function Home(){
         if( !roomRef.exists()){
             alert('Room does not exist');
         }
+
+        if(roomRef.val()?.endedAt){
+            window.alert('Room already closed.');
+            return;
+
+        }
         history.push(`/rooms/${roomCode}`)
 
     }
@@ -42,7 +48,7 @@ export function Home(){
             <main>
                 <div className="main-content">
                     <img src={logoImage} alt="letmeask"/>
-                    <button className="createRoom" onClick= {handleCreateroom}>
+                    <button className="create-room" onClick= {handleCreateroom}>
                         <img src={googleIcon} alt= "Logo do Google"/>
                         Crie sua Sala com o Google
                     </button>
